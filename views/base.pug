@@ -1,0 +1,9 @@
+form(method='post', action='/')
+    p Select Students to Process:
+        each student in students
+            div.checkbox-inline
+                input.checkbox-input(type='checkbox', name=`student_select`, value=student._id, id=`st_${student._id}`)
+                label(for=`st_${student._id}`)=`${student.name} :: grade ${student.grade}`
+    input(type='submit', name='subtype' value='View Info')
+    input(type='submit', name='subtype', value='Sort By Grade')
+    input(type='submit', name='subtype', value='Lowest Average GPA(s)')

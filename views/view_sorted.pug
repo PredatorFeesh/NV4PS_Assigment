@@ -1,0 +1,18 @@
+html
+    head
+        title Random project
+    body
+        include base.pug
+        hr
+        each group in sorted_students
+            //- We can just get grade from first student because we are gaurenteed at least one student
+            h4=`Grade group: ${group[0].grade}`
+            each student in group
+                h5=`STUDENT: ${student.name}`
+                p=`Grade: ${student.grade}`
+                p='Scores'
+                ul
+                each score in student.scores
+                    li=`${score.subject} : ${score.value}`
+                br
+            hr
