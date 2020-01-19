@@ -47,7 +47,14 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
     // Yes, this function is very packed.. terrible complexity.. prototype...
-    console.log(req.body.subtype);
+    
+    if (req.body.student_select == undefined)
+    {
+        console.error("You need to enter students!");
+        res.redirect('/');
+        return;
+    }
+
     if (req.body.subtype == "View Info") // If we want to view info
     {
         console.log("Sorting now by the view info of each student!");
